@@ -18,12 +18,10 @@ const posts = await getCollection("posts");
     </div>
     <div class="w-full overflow-x-auto">
       {
-        posts.map(post => (
+        posts.map((post) => (
           <a href={`/posts/${post.id}`}>
             <article class="bg-slate-400 border-4 border-purple-950 rounded-lg p-4 w-64 h-48">
-              <h2>
-                {post.data.title}
-              </h2>
+              <h2>{post.data.title}</h2>
             </article>
           </a>
         ))
