@@ -32,7 +32,39 @@ const { Content } = await render(post);
   ]}
 >
   <article class="relative" slot="main">
-    <button class="absolute top-0 right-0 cursor-pointer" onclick="alert(1)">
+    <script>
+      if (localStorage.getItem("isAdmin") === "true") {
+        document.querySelectorAll(".edit-button").forEach((button) => {
+          button.classList.remove("hidden");
+        });
+      }
+
+      const clickSideHistory: ("right" | "left")[] = [];
+      document.addEventListener("click", (e) => {
+        clickSideHistory.push(e.x > window.innerWidth / 2 ? "right" : "left");
+
+        if (clickSideHistory.length > 6) {
+          clickSideHistory.shift();
+        }
+
+        if (
+          clickSideHistory.length === 6 &&
+          clickSideHistory.every(
+            (side, index) => (side === "right") === (index % 2 === 0)
+          )
+        ) {
+          localStorage.setItem("isAdmin", "true");
+          alert("You are now an admin");
+          document.querySelectorAll(".edit-button").forEach((button) => {
+            button.classList.remove("hidden");
+          });
+        }
+      });
+    </script>
+    <button
+      class="absolute top-0 right-0 cursor-pointer hidden edit-button"
+      onclick="alert(1)"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -50,13 +82,11 @@ const { Content } = await render(post);
       >
     </button>
     <div class="prose py-8">
-      {isAdmin && <Editor client:only markdown={post.body} />}
+      {false && <Editor client:only markdown={post.body} />}
 
       <h1>{post.data.title}</h1>
 
       <Content />
     </div>
-
-    <section></section>
   </article>
 </Layout>
