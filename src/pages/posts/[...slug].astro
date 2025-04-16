@@ -1,10 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Layout from '@/layouts/Layout.astro';
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { Editor } from "@/components/MarkdownEditor";
 import "@/globals.css";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection("posts");
 
   return posts.map((post) => ({
     params: {
@@ -14,15 +15,48 @@ export async function getStaticPaths() {
   }));
 }
 
+const isAdmin = false;
+
 const { post } = Astro.props;
+const { slug } = Astro.params;
 
 const { Content } = await render(post);
-
 ---
 
-<Layout>
-  <article class="prose">
-    <h1>{post.data.title}</h1>
-    <Content />
+<Layout
+  title={post.data.title}
+  location={[
+    { label: "hjem", href: "/" },
+    { label: "innlegg", href: "/posts" },
+    { label: slug, href: `/posts/${slug}` },
+  ]}
+>
+  <article class="relative" slot="main">
+    <button class="absolute top-0 right-0 cursor-pointer" onclick="alert(1)">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        class="w-8 h-8"
+        ><path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m14.304 4.844l2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565l6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
+        ></path></svg
+      >
+    </button>
+    <div class="prose py-8">
+      {isAdmin && <Editor client:only markdown={post.body} />}
+
+      <h1>{post.data.title}</h1>
+
+      <Content />
+    </div>
+
+    <section></section>
   </article>
 </Layout>

@@ -1,0 +1,39 @@
+---
+import type { InferEntrySchema } from "astro:content";
+
+export type Props = {
+  post: {
+    id: string;
+    data: InferEntrySchema<"posts">;
+  };
+};
+
+const {
+  post: {
+    data: { title, description, published },
+    id,
+  },
+} = Astro.props;
+---
+
+<a href={`/posts/${id}`}>
+  <article
+    class="border-slate-300 flex flex-col justify-between text-lg md:text-base shadow bg-white border h-48 p-8 hover:shadow-md"
+  >
+    <div class="prose">
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+    <div class="flex justify-end">
+      <p class="text-slate-400">
+        {published.toLocaleDateString("no-NB")}
+        {
+          published.toLocaleTimeString("no-NB", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })
+        }
+      </p>
+    </div>
+  </article>
+</a>

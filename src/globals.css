@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+.prose {
+  @apply prose-headings:my-0
+}

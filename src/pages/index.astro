@@ -1,31 +1,14 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 
 import { Content as AboutMeContent } from "../../content/homepage/about-me.md";
-
-const posts = await getCollection("posts");
+import PostList from "@/components/PostList.astro";
 ---
 
-<Layout>
-  <section class="prose">
+<Layout title="Jo Gramnæs Tjernshaugen" location={[]}>
+  <div class="prose" slot="main">
     <AboutMeContent />
-  </section>
+  </div>
 
-  <section>
-    <div class="prose">
-      <h2 class="mb-2">Blogginnlegg</h2>
-    </div>
-    <div class="w-full overflow-x-auto">
-      {
-        posts.map((post) => (
-          <a href={`/posts/${post.id}`}>
-            <article class="bg-slate-400 border-4 border-purple-950 rounded-lg p-4 w-64 h-48">
-              <h2>{post.data.title}</h2>
-            </article>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+  <PostList compact />
 </Layout>
