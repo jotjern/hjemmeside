@@ -4,7 +4,7 @@ Mitt navn er **Jo Gramnæs Tjernshaugen**. Jeg er IT-utvikler og student, og job
 
 Jeg har erfaring fra deltidsstilling i **Store norske leksikon**, Append Consulting, internship i **Vipps MobilePay**, samt frivillig som leder for utviklingskomiteen i linjeforeningen Online.
 
-Gjennom mitt selskap har jeg levert prosjekter for Store norske leksikon og **Prismatch AS**.
+Gjennom mitt selskap har jeg levert prosjekter for **Store norske leksikon** og **Prismatch AS**.
 
 <!-- Du kan lese mer om min erfaring i <a href="/cv">Min CV</a> eller om noen av <a href="/posts">Mine prosjekter</a> -->
 
