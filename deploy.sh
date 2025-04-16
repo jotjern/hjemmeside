@@ -4,9 +4,9 @@ set -e
 
 git push
 
-sleep 3
-
 echo "Waiting for the GitHub Action to start..."
+
+sleep 3
 
 while true; do
   db_id=$(gh run list --commit "$(git rev-parse HEAD)" --json databaseId | jq '.[0].databaseId')
@@ -17,4 +17,4 @@ while true; do
   sleep 1
 done
 
-gh run watch -i 0.25 "$db_id" 
+gh run watch -i 0 "$db_id" 
