@@ -6,7 +6,7 @@ Jeg har erfaring fra deltidsstillinger i **Store norske leksikon**, Append Consu
 
 Gjennom mitt selskap har jeg levert prosjekter for Store norske leksikon og **Prismatch AS**.
 
-Du kan lese mer om min erfaring i <a href="/cv">Min CV</a> eller om noen av <a href="/posts">Mine prosjekter</a>
+<!-- Du kan lese mer om min erfaring i <a href="/cv">Min CV</a> eller om noen av <a href="/posts">Mine prosjekter</a> -->
 
 Mitt fokus er å levere raske, pragmatiske løsninger i tett samarbeid med kunder.
 
