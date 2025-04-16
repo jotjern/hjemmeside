@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "git push && gh run watch $(gh run list --commit $(git rev-parse HEAD) --json databaseId | jq '.[0].databaseId')"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.4",
