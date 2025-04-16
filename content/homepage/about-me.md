@@ -16,4 +16,4 @@ E-post: **jotjernshaugen@<!-- -->gmail.com**<br>
 Telefon: **+47 46264835**<br>
 LinkedIn: <a href="https://www.linkedin.com/in/jotjern/" target="_blank">linkedin.com/in/jotjern</a><br>
 Github: <a href="https://github.com/jotjern" target="_blank">github.com/jotjern</a><br>
-Brreg: <a href="https://w2.brreg.no/enhet/sok/detalj.jsp?orgnr=933972798" target="_blank">933 972 798</a> (org.nr)
+Brreg: <a href="https://w2.brreg.no/enhet/sok/detalj.jsp?orgnr=933972798" target="_blank">933972798</a> (org.nr)
